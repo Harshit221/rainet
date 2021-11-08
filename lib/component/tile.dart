@@ -1,23 +1,17 @@
 import 'package:flutter/widgets.dart';
 import 'package:rainet/component/cards.dart';
+import 'package:rainet/component/highlight/highlights.dart';
 import 'package:rainet/component/position.dart';
 import 'package:rainet/component/powers.dart';
+import 'package:rainet/component/powers/player_mixin.dart';
 
 class Tile extends ChangeNotifier {
   final Position position;
   Tile(this.position);
   Card? card;
   FireWall? fireWall;
-  bool _shouldHighlight = false;
-
-  bool get shouldHighlight {
-    // ignore: todo
-    // TODO: Update this logic as needed
-    if (card == null) return _shouldHighlight;
-    return false;
-  }
-
-  set shouldHighlight(bool value) => _shouldHighlight = value;
+  // bool _shouldHighlight = false;
+  Highlight highlight = Highlight.none;
 
   bool canMoveTo() {
     // ignore: todo
@@ -42,4 +36,8 @@ class ExitTile extends Tile {
 
   @override
   bool canInstall() => false;
+}
+
+class HomeTile extends Tile with PlayerMixin {
+  HomeTile(Position position) : super(position);
 }

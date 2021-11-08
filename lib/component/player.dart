@@ -1,13 +1,18 @@
+import 'package:flutter/widgets.dart';
 import 'package:rainet/component/cards.dart';
 
-class Player {
+class Player extends ChangeNotifier{
   final int id;
-  final String name;
+  late String name;
   // int virusCards = 0, linkCards = 0;
   List<VirusCard> virusCards = [];
   List<LinkCard> linkCards = [];
 
-  Player(this.id, this.name);
+  Player(this.id);
+
+  void injectName(String name) {
+    this.name = name;
+  }
 
   @override
   bool operator ==(Object other) {
