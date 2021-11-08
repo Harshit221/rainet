@@ -11,6 +11,7 @@ class Tile extends ChangeNotifier {
   bool _shouldHighlight = false;
 
   bool get shouldHighlight {
+    // ignore: todo
     // TODO: Update this logic as needed
     if (card == null) return _shouldHighlight;
     return false;
@@ -19,6 +20,7 @@ class Tile extends ChangeNotifier {
   set shouldHighlight(bool value) => _shouldHighlight = value;
 
   bool canMoveTo() {
+    // ignore: todo
     // TODO: update logic to enable move when there is opponent's card or our firewall
 
     if (card == null || fireWall == null) {

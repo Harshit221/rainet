@@ -1,14 +1,16 @@
 import 'package:flutter/widgets.dart';
 import 'package:rainet/component/player.dart';
 import 'package:rainet/component/powers.dart';
+import 'package:rainet/component/powers/player_mixin.dart';
 import 'package:rainet/logic/utils.dart';
 
-abstract class Card {
-  final Player player;
+abstract class Card with PlayerMixin {
   // Power? power;
   List<Power> powers = [];
   @mustCallSuper
-  Card(this.player);
+  Card(Player player) {
+    injectPlayer(player);
+  }
 
   bool canInstall(Power p) {
     if (p is FireWall || p is Swap) return false;
